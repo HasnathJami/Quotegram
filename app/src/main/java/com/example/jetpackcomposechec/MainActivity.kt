@@ -29,11 +29,22 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.jetpackcomposechec.api.QuotesAPI
 import com.example.jetpackcomposechec.ui.theme.JetpackComposeCheCTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var quotesApi: QuotesAPI
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        CoroutineScope(Dispatchers.IO).launch {
+//           var categories =  quotesApi.getCategories()
+//            Log.d("checkCategories", categories.body()?.distinct().toString())
+//        }
         setContent {
             JetpackComposeCheCTheme {
                 subscribeUiToRecyclerView()
