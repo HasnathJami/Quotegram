@@ -1,10 +1,12 @@
 package com.example.jetpackcomposechec
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -30,6 +32,8 @@ class MainActivity2 : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             populateUi()
+            val a = "jishan"
+            checkClick { a }
         }
     }
 
@@ -44,6 +48,7 @@ class MainActivity2 : ComponentActivity() {
 //                )
 //            }
 //        }
+
         LazyColumn(content = {
             items(getCustomers()) { customer ->
                 singleRowDesign(
@@ -55,13 +60,20 @@ class MainActivity2 : ComponentActivity() {
             }
         })
     }
+    
+    private fun checkClick(showClick: () -> String) {
+        val a = showClick
+        Log.d("checkClick", a.toString())
+    }
 
     @Composable
     fun singleRowDesign(image: Int, name: String, number: String) {
         Card(
             elevation = 8.dp,
             modifier = Modifier
-                .padding(8.dp),
+                .padding(8.dp).clickable {
+
+                },
             // .background(Color.Blue),
             backgroundColor = Color.Red,
             border = BorderStroke(1.dp, Color.Blue)
