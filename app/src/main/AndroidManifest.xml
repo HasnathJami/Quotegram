@@ -12,22 +12,34 @@
         android:theme="@style/Theme.JetpackComposeCheC"
         tools:targetApi="31">
         <activity
+            android:name=".ui.theme.SideEffectsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_side_effects"
+            android:theme="@style/Theme.JetpackComposeCheC" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.theme.ThemeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_theme"
+            android:theme="@style/Theme.JetpackComposeCheC" />
+        <activity
             android:name=".MainActivity2"
             android:exported="true"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.JetpackComposeCheC">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.JetpackComposeCheC">
-        </activity>
+            android:theme="@style/Theme.JetpackComposeCheC" />
     </application>
 
 </manifest>
