@@ -24,7 +24,7 @@ class QuotesRepository @Inject constructor(private val quotesAPI: QuotesAPI) {
     }
 
     suspend fun getQuotes(category: String) {
-        val response = quotesAPI.getQuotes(category)
+        val response = quotesAPI.getQuotes("quotes[?(@.category==\"$category\")]")
         if (response.isSuccessful && response.body() != null) {
             _quotes.emit(response.body()!!)
         }
