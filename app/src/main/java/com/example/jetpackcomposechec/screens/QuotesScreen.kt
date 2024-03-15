@@ -1,6 +1,5 @@
 package com.example.jetpackcomposechec.screens
 
-import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,12 +13,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.jetpackcomposechec.viewmodels.QuotesViewModel
 
 @Composable
 fun quotesScreen() {
-    val quotesViewModel: QuotesViewModel = viewModel()
+    val quotesViewModel: QuotesViewModel = hiltViewModel()
     val quotes = quotesViewModel.quotes.collectAsState()
 
     LazyColumn(content = {
