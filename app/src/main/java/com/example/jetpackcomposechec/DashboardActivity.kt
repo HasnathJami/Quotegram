@@ -3,7 +3,15 @@ package com.example.jetpackcomposechec
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,6 +26,28 @@ class DashboardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            populateDashboard()
+        }
+    }
+}
+
+@Composable
+fun populateDashboard() {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text("Quotegram")
+                },
+                backgroundColor = Color.Black,
+                contentColor = Color.White
+            )
+        }
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(it)
+        ) {
             App()
         }
     }
@@ -74,3 +104,9 @@ fun App() {
 //fun B(id:Int?) {
 //    Text(text = "Screen B $id")
 //}
+
+@Preview
+@Composable
+fun showPreview() {
+  populateDashboard()
+}
